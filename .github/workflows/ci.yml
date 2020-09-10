@@ -33,3 +33,4 @@ jobs:
       - name: Run Tests
         run: |
             python hello.py
+            pytest test/test.py
