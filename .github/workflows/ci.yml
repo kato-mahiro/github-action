@@ -26,8 +26,9 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install Dependencies
-        run: pip install pytest
-        run: pip install numpy
+        run: |
+            pip install pytest
+            pip install numpy
       # pytest を実行する
       - name: Run Tests
         run: pytest tests/test.py
