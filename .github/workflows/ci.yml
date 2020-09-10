@@ -35,4 +35,5 @@ jobs:
             pwd
             cd /home/runner/work
             pwd
+            ls
             pytest /tests/test.py
