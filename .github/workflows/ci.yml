@@ -32,8 +32,4 @@ jobs:
       # pytest を実行する
       - name: Run Tests
         run: |
-            pwd
-            cd /home/runner/work/github-action
-            pwd
-            ls
-            pytest /tests/test.py
+            python hello.py
