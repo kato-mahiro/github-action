@@ -31,4 +31,4 @@ jobs:
             pip install numpy
       # pytest を実行する
       - name: Run Tests
-        run: pytest ./tests/test.py
+        run: pytest /tests/test.py
