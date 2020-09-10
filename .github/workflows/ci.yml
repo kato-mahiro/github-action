@@ -1,0 +1,33 @@
+name: pytest
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  pytest:
+    name: Run tests with pytest
+    # 実行環境として `ubuntu-latest` という名前のものを選ぶ
+    runs-on: ubuntu-latest
+    # 複数の Python のバージョンでテストするために `strategy.matrix` を設定する
+    strategy:
+      matrix:
+        python-version: [2.7, 3.7, 3.8]
+    steps:
+      # リポジトリをチェックアウトする
+      # See: https://github.com/actions/checkout
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Python のランタイムをセットアップする
+      # バージョンは `strategy.matrix` に並べたものを指定する
+      # See: https://github.com/actions/setup-python
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Dependencies
+        run: pip install pytest
+        run: pip install numpy
+      # pytest を実行する
+      - name: Run Tests
+        run: pytest tests/test.py
