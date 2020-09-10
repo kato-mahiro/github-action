@@ -33,7 +33,7 @@ jobs:
       - name: Run Tests
         run: |
             pwd
-            cd /home/runner/work
+            cd /
             pwd
             ls
             pytest /tests/test.py
